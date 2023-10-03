@@ -1,5 +1,12 @@
-def ubah_huruf(sentence):
+def ubah_huruf(sentence, geser=10):
     pattern = ""
+    for teks in sentence:
+        if teks.isalpha():
+            ubah_ke_unicode = ord('A') if teks.isupper() else ord('a')
+            ubah_ke_char = chr((ord(teks) - ubah_ke_unicode + geser) % 26 + ubah_ke_unicode)
+            pattern += ubah_ke_char
+        else:
+            pattern += teks
     return pattern
 
 if __name__ == '__main__':
